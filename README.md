@@ -118,14 +118,7 @@ Available targets:
 | min_ttl | Minimum amount of time that you want objects to stay in CloudFront caches | string | `0` | no |
 | name | Name  (e.g. `bastion` or `db`) | string | - | yes |
 | namespace | Namespace (e.g. `cp` or `cloudposse`) | string | - | yes |
-| origin_domain_name | (Required) - The DNS domain name of your custom origin (e.g. website) | string | `` | no |
-| origin_http_port | (Required) - The HTTP port the custom origin listens on | string | `80` | no |
-| origin_https_port | (Required) - The HTTPS port the custom origin listens on | string | `443` | no |
-| origin_keepalive_timeout | (Optional) The Custom KeepAlive timeout, in seconds. By default, AWS enforces a limit of 60. But you can request an increase. | string | `60` | no |
-| origin_path | (Optional) - An optional element that causes CloudFront to request your content from a directory in your Amazon S3 bucket or your custom origin | string | `` | no |
-| origin_protocol_policy | (Required) - The origin protocol policy to apply to your origin. One of http-only, https-only, or match-viewer | string | `match-viewer` | no |
-| origin_read_timeout | (Optional) The Custom Read timeout, in seconds. By default, AWS enforces a limit of 60. But you can request an increase. | string | `60` | no |
-| origin_ssl_protocols | (Required) - The SSL/TLS protocols that you want CloudFront to use when communicating with your origin over HTTPS | list | `<list>` | no |
+| origins | (Required) - The origins to use with CloudFront. Must supply at least one origin. | list | `<list>` | yes |
 | parent_zone_id | ID of the hosted zone to contain this record  (or specify `parent_zone_name`) | string | `` | no |
 | parent_zone_name | Name of the hosted zone to contain this record (or specify `parent_zone_id`) | string | `` | no |
 | price_class | Price class for this distribution: `PriceClass_All`, `PriceClass_200`, `PriceClass_100` | string | `PriceClass_100` | no |

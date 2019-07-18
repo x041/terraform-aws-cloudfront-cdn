@@ -53,20 +53,7 @@ resource "aws_cloudfront_distribution" "default" {
 
   custom_error_response = ["${var.custom_error_response}"]
 
-  origin {
-    domain_name = "${var.origin_domain_name}"
-    origin_id   = "${module.distribution_label.id}"
-    origin_path = "${var.origin_path}"
-
-    custom_origin_config {
-      http_port                = "${var.origin_http_port}"
-      https_port               = "${var.origin_https_port}"
-      origin_protocol_policy   = "${var.origin_protocol_policy}"
-      origin_ssl_protocols     = "${var.origin_ssl_protocols}"
-      origin_keepalive_timeout = "${var.origin_keepalive_timeout}"
-      origin_read_timeout      = "${var.origin_read_timeout}"
-    }
-  }
+  origin = ["${var.origins}"]
 
   viewer_certificate {
     acm_certificate_arn            = "${var.acm_certificate_arn}"
