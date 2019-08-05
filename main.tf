@@ -65,7 +65,7 @@ resource "aws_cloudfront_distribution" "default" {
   default_cache_behavior {
     allowed_methods  = "${var.allowed_methods}"
     cached_methods   = "${var.cached_methods}"
-    target_origin_id = "${var.origins[0].origin_id}"
+    target_origin_id = "${lookup(var.origins[0], "origin_id")}"
     compress         = "${var.compress}"
 
     forwarded_values {
